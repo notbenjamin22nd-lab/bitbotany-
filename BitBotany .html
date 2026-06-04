@@ -504,4 +504,19 @@
     renderBooks();
 </script>
 
-<script></script></body></html>
+<script></script><!-- Background Audio -->
+<audio id="bg-music" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  // Plays music on the very first tap anywhere on the screen
+  document.addEventListener('click', function() {
+    var audio = document.getElementById('bg-music');
+    if (audio.paused) {
+      audio.play().catch(function(error) {
+        console.log("Audio failed to play:", error);
+      });
+    }
+  }, { once: true });
+</script></body></html>
